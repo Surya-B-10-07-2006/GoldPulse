@@ -116,7 +116,7 @@ if predict_btn:
         
         st.success(f"✅ Fetched {len(df)} records")
         
-        current_price = float(df['Close'].values[-1]) * rate / unit_divisor
+        current_price = float(df['Close'].iloc[-1]) * rate / unit_divisor
         
         with st.spinner("🔄 Running ARIMA Forecasting..."): 
             forecast_7_raw = train_arima(df['Close'], steps=7)
