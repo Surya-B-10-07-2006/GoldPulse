@@ -50,7 +50,7 @@ pip install -r requirements.txt
 ### Running the Application
 
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 The app will open in your default browser at `http://localhost:8501`
