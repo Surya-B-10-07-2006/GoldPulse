@@ -118,9 +118,12 @@ if predict_btn:
         
         current_price = float(df['Close'].values[-1]) * rate / unit_divisor
         
-        with st.spinner("🔄 Running ARIMA Forecasting..."):
+        with st.spinner("🔄 Running ARIMA Forecasting..."): 
             forecast_7_raw = train_arima(df['Close'], steps=7)
-            forecast_7_array = np.array(forecast_7_raw, dtype=float)
+            if isinstance(forecast_7_raw, (int, float)):
+                forecast_7_array = np.array([forecast_7_raw])
+            else:
+                forecast_7_array = np.array(forecast_7_raw).flatten()
             forecast_prices = forecast_7_array * rate / unit_divisor
             arima_price = float(forecast_prices[0])
             forecast_7day = forecast_prices
