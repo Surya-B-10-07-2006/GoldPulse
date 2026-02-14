@@ -183,10 +183,14 @@ if predict_btn:
                 marker_color = '#00d4ff'
             
             ax.plot(j, prices[j], marker='o', markersize=7, color=marker_color, zorder=5)
+            ax.text(j, prices[j], f'{prices[j]:.2f}', fontsize=8, ha='center', va='bottom', 
+                   color='white', weight='bold', bbox=dict(boxstyle='round,pad=0.3', facecolor=marker_color, alpha=0.8))
         
         ax.plot([len(prices)-1, len(prices)], [prices[-1], arima_price], 
                linestyle='--', color='#ffd700', linewidth=3, zorder=5)
         ax.plot(len(prices), arima_price, marker='o', markersize=10, color='#ffd700', zorder=5)
+        ax.text(len(prices), arima_price, f'{arima_price:.2f}', fontsize=8, ha='center', va='bottom', 
+               color='white', weight='bold', bbox=dict(boxstyle='round,pad=0.3', facecolor='#ffd700', alpha=0.8))
         
         all_labels = dates + ['Forecast']
         ax.set_xticks(range(len(all_labels)))
