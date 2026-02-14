@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-python -m streamlit run app.py
+streamlit run streamlit_app.py
 ```
 
 1. Select metal (Gold/Silver/Platinum)
